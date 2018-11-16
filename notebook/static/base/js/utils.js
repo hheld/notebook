@@ -813,8 +813,12 @@ define([
         }
         if (!settings.headers.Authorization) {
             var xsrf_token = _get_cookie('_xsrf');
+            var xsrf_token2 = _get_cookie('XSRF-TOKEN');
             if (xsrf_token) {
                 settings.headers['X-XSRFToken'] = xsrf_token;
+            }
+            if (xsrf_token2) {
+                settings.headers['X-XSRF-Token']= xsrf_token2;
             }
         }
         return settings;
